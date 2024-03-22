@@ -9,6 +9,6 @@ import lombok.*;
 @ToString
 @EqualsAndHashCode
 public final class Participants {
-    private int user_id;
+    private int userId;
     private int competitionCatalogId;
 }
