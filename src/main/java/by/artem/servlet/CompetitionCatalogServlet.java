@@ -1,5 +1,6 @@
 package by.artem.servlet;
 
+import by.artem.dao.util.JspHelper;
 import by.artem.service.CompetitionCatalogService;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -19,18 +20,8 @@ public class CompetitionCatalogServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setContentType("text/html");
         resp.setCharacterEncoding(StandardCharsets.UTF_8.name());
-        try (var writer = resp.getWriter()) {
-            writer.write("<h1>Список соревнований:</h1>");
-            writer.write("<ul>  ");
-            competitionCatalogService.findAll().forEach(competitionCatalogDto ->
-                    writer.write("<li>%s %s</li>".formatted(
-                            competitionCatalogDto.dateEvent(),
-                            competitionCatalogDto.description())
-                    )
-            );
+        req.setAttribute("competitions", competitionCatalogService.findAll());
+        req.getRequestDispatcher(JspHelper.getPath("competitions")).forward(req, resp);
 
-            writer.write("</ul>");
-
-        }
     }
 }
