@@ -71,7 +71,7 @@ public class CompetitionCatalogDao implements Dao<Integer, CompetitionCatalog>{
     private CompetitionCatalog buildCompetitionCatalog(ResultSet result) throws SQLException {
         return new CompetitionCatalog(
                 result.getInt("id"),
-                result.getDate("date"),
+                result.getDate("date_event"),
                 result.getString("description")
 
         );
