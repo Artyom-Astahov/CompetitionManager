@@ -2,14 +2,22 @@ package by.artem.dao.classes;
 
 import lombok.*;
 
+import javax.persistence.*;
+import java.util.List;
+
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Getter
-@Setter
+@Builder
 @ToString
-@EqualsAndHashCode
+@Entity
 public final class SportCategory {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private Enum<SportCategoryEnum> category;
+    @Enumerated(EnumType.STRING)
+    private SportCategoryEnum category;
+    @OneToMany(mappedBy = "categoryId", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<UserInfo> usersInfo;
 
 }

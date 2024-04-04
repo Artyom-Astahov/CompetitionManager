@@ -2,13 +2,22 @@ package by.artem.dao.classes;
 
 import lombok.*;
 
+import javax.persistence.*;
+import java.util.List;
+
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Getter
-@Setter
+@Builder
 @ToString
-@EqualsAndHashCode
+@Entity
 public final class Roles {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String role;
+    @Enumerated(EnumType.STRING)
+    private RolesEnum role;
+
+    @OneToMany(mappedBy = "role", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Users> users;
 }
