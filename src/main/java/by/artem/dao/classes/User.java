@@ -1,6 +1,5 @@
 package by.artem.dao.classes;
 
-import com.sun.xml.bind.v2.model.core.ID;
 import lombok.*;
 import lombok.extern.slf4j.Slf4j;
 
@@ -12,26 +11,28 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@ToString
+@ToString(exclude = "userInfo")
 @Entity
 @Slf4j
-public class Users {
+@Table(schema = "public")
+public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String login;
     private String password;
-    @ManyToOne
-    @JoinColumn(name = "role")
-    private Roles role;
+    @Enumerated(EnumType.STRING)
+    private RolesEnum role;
     @Builder.Default
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "participants", joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "competition_catalog_id"))
     private List<CompetitionCatalog> competitionCatalogs = new ArrayList<>();
 
 
-    @OneToOne(mappedBy = "userId", cascade = CascadeType.ALL)
+
+    @OneToOne(mappedBy = "user",
+            cascade = CascadeType.ALL)
     private UserInfo userInfo;
 
 
@@ -42,6 +43,5 @@ public class Users {
         competitionCatalogs.add(competitionCatalog);
         competitionCatalog.getUsers().add(this);
     }
-
 
 }

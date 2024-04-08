@@ -1,4 +1,4 @@
-package by.artem.dao.util;
+package by.artem.dao.utils;
 
 import lombok.experimental.UtilityClass;
 

@@ -10,11 +10,10 @@
     <property name="connection.password">root</property>
     <property name="show_sql">true</property>
     <property name="format_sql">true</property>
+<!--    <property name="hibernate.hbm2ddl.auto">create</property>-->
     <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQL10Dialect</property>
     <mapping class="by.artem.dao.classes.CompetitionCatalog"/>
-    <mapping class="by.artem.dao.classes.Roles"/>
-    <mapping class="by.artem.dao.classes.Users"/>
-    <mapping class="by.artem.dao.classes.SportCategory"/>
+    <mapping class="by.artem.dao.classes.User"/>
     <mapping class="by.artem.dao.classes.UserInfo"/>
     <mapping class="by.artem.dao.classes.SportCategoryEnum"/>
 

@@ -1,15 +1,21 @@
 package by.artem.dao.entity_persister;
 
-import by.artem.dao.classes.SportCategory;
 import by.artem.dao.classes.UserInfo;
-import by.artem.dao.util.HibernateUtil;
+import by.artem.dao.utils.HibernateUtil;
+import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
 import java.io.Serializable;
 import java.util.List;
-
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class UserInfoEntityPersister extends EntityPersister<UserInfo> {
+
+    @Getter
+    private static final UserInfoEntityPersister INSTANCE = new UserInfoEntityPersister();
+
     @Override
     public UserInfo getById(Serializable id) {
         try (SessionFactory sessionFactory = HibernateUtil.buildSessionFactory();

@@ -1,4 +1,4 @@
-package by.artem.dao.util;
+package by.artem.dao.utils;
 
 import java.lang.reflect.Proxy;
 import java.sql.Connection;

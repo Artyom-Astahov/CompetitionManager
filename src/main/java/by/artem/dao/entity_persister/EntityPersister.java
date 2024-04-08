@@ -1,14 +1,12 @@
 package by.artem.dao.entity_persister;
 
-import by.artem.dao.classes.CompetitionCatalog;
-import by.artem.dao.util.HibernateUtil;
+import by.artem.dao.utils.HibernateUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
 import java.io.Serializable;
 import java.util.List;
-import java.util.Objects;
 
 @Slf4j
 public abstract class EntityPersister<T> {
