@@ -1,6 +1,8 @@
 package by.artem.dao.classes;
 
 import lombok.*;
+import org.hibernate.envers.Audited;
+import org.hibernate.envers.NotAudited;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -15,12 +17,15 @@ import java.util.List;
 @ToString(exclude = "users")
 @Entity
 @Table(schema = "public")
+@Audited
 public final class CompetitionCatalog {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private LocalDateTime dateEvent;
     private String description;
+
+    @NotAudited
     @Builder.Default
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinTable(name = "participants", joinColumns = @JoinColumn(name = "competition_catalog_id"),

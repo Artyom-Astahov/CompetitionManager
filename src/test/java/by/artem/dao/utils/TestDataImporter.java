@@ -89,11 +89,13 @@ public class TestDataImporter {
     private CompetitionCatalog saveCompetitionCatalog(Session session,
                                                       LocalDateTime date,
                                                       String description) {
+        session.beginTransaction();
         CompetitionCatalog competitionCatalog = CompetitionCatalog.builder()
                 .description(description)
                 .dateEvent(date)
                 .build();
         session.save(competitionCatalog);
+        session.getTransaction().commit();
         return competitionCatalog;
     }
 
