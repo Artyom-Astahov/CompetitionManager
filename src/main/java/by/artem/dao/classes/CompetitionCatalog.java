@@ -22,7 +22,7 @@ public final class CompetitionCatalog {
     private LocalDateTime dateEvent;
     private String description;
     @Builder.Default
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinTable(name = "participants", joinColumns = @JoinColumn(name = "competition_catalog_id"),
             inverseJoinColumns = @JoinColumn(name = "user_id"))
     private List<User> users = new ArrayList<>();

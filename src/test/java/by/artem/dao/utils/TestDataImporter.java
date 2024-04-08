@@ -28,15 +28,15 @@ public class TestDataImporter {
         saveUserInfo(session, edCohen, "Ed Cohen", 105,
                 SportCategoryEnum.MS, LocalDate.of(1987, 02, 21));
         saveUserInfo(session, marlonWilliams, "Marlon Williams", 100,
-                SportCategoryEnum.MS, LocalDate.of(1986, 07, 12));
+                SportCategoryEnum.KMS, LocalDate.of(1986, 07, 12));
         saveUserInfo(session, billStarr, "Bill Star", 134,
-                SportCategoryEnum.MS, LocalDate.of(1985, 06, 25));
+                SportCategoryEnum.FIRST_CATEGORY, LocalDate.of(1985, 06, 25));
         saveUserInfo(session, leeLabrada, "Lee Labrada", 107,
                 SportCategoryEnum.MS, LocalDate.of(1988, 05, 13));
         saveUserInfo(session, jasonOtto, "Jason Otto", 110,
-                SportCategoryEnum.MS, LocalDate.of(1989, 03, 04));
+                SportCategoryEnum.FIRST_CATEGORY, LocalDate.of(1989, 03, 04));
         saveUserInfo(session, donReinhald, "Done Reinhald", 123,
-                SportCategoryEnum.MS, LocalDate.of(1991, 05, 24));
+                SportCategoryEnum.KMS, LocalDate.of(1991, 05, 24));
 
 
         CompetitionCatalog sbdSheffield = saveCompetitionCatalog(session,

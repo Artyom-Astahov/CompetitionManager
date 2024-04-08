@@ -29,9 +29,4 @@ public class UserInfo {
     private LocalDate dateBirth;
 
 
-    public void setUser(User user){
-        this.user = user;
-        user.setUserInfo(this);
-    }
-
 }

@@ -11,7 +11,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@ToString(exclude = "userInfo")
+@ToString
 @Entity
 @Slf4j
 @Table(schema = "public")
@@ -24,16 +24,16 @@ public class User {
     @Enumerated(EnumType.STRING)
     private RolesEnum role;
     @Builder.Default
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinTable(name = "participants", joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "competition_catalog_id"))
     private List<CompetitionCatalog> competitionCatalogs = new ArrayList<>();
 
 
-
-    @OneToOne(mappedBy = "user",
-            cascade = CascadeType.ALL)
-    private UserInfo userInfo;
+// Реализована OneDirection связь
+//    @OneToOne(mappedBy = "user",
+//            cascade = CascadeType.ALL)
+//    private UserInfo userInfo;
 
 
     public void addCompetitionCatalog(CompetitionCatalog competitionCatalog) {
