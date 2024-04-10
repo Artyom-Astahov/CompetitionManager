@@ -1,11 +1,10 @@
-package by.artem.dao.classes;
+package by.artem.entity;
 
 import lombok.*;
 import lombok.extern.slf4j.Slf4j;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.util.Date;
 
 @Data
 @NoArgsConstructor
@@ -15,10 +14,10 @@ import java.util.Date;
 @Entity
 @Slf4j
 @Table(schema = "public")
-public class UserInfo {
+public class UserInfo implements BaseEntity<Integer>{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     private User user;

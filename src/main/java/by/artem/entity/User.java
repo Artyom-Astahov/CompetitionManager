@@ -1,4 +1,4 @@
-package by.artem.dao.classes;
+package by.artem.entity;
 
 import lombok.*;
 import lombok.extern.slf4j.Slf4j;
@@ -15,14 +15,20 @@ import java.util.List;
 @Entity
 @Slf4j
 @Table(schema = "public")
-public class User {
+public class User implements BaseEntity<Integer>{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
     private String login;
     private String password;
     @Enumerated(EnumType.STRING)
     private RolesEnum role;
+    @OneToOne(
+            mappedBy = "user",
+            cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY
+    )
+    private UserInfo userInfo;
     @Builder.Default
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinTable(name = "participants", joinColumns = @JoinColumn(name = "user_id"),
@@ -30,10 +36,6 @@ public class User {
     private List<CompetitionCatalog> competitionCatalogs = new ArrayList<>();
 
 
-// Реализована OneDirection связь
-//    @OneToOne(mappedBy = "user",
-//            cascade = CascadeType.ALL)
-//    private UserInfo userInfo;
 
 
     public void addCompetitionCatalog(CompetitionCatalog competitionCatalog) {

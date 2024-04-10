@@ -1,4 +1,4 @@
-package by.artem.dao.utils;
+package by.artem.utils;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.model.naming.CamelCaseToUnderscoresNamingStrategy;

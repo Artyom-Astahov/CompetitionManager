@@ -1,4 +1,4 @@
-package by.artem.dao.classes;
+package by.artem.entity;
 
 public enum RolesEnum {
     ADMIN, GUEST, COACH, ATHLETE

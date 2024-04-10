@@ -1,16 +1,14 @@
 package by.artem.dao.utils;
 
-import by.artem.dao.classes.*;
+import by.artem.entity.*;
 import lombok.Cleanup;
-import lombok.Data;
-import lombok.Getter;
 import lombok.experimental.UtilityClass;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.Date;
+
 @UtilityClass
 public class TestDataImporter {
 

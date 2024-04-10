@@ -1,4 +1,4 @@
-package by.artem.dao.classes;
+package by.artem.entity;
 
 import lombok.Getter;
 

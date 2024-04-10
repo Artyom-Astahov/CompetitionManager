@@ -1,4 +1,4 @@
-package by.artem.dao.classes;
+package by.artem.entity;
 
 import lombok.*;
 import org.hibernate.envers.Audited;
@@ -7,7 +7,6 @@ import org.hibernate.envers.NotAudited;
 import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 @Data
@@ -18,10 +17,10 @@ import java.util.List;
 @Entity
 @Table(schema = "public")
 @Audited
-public final class CompetitionCatalog {
+public final class CompetitionCatalog implements BaseEntity<Integer>{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
     private LocalDateTime dateEvent;
     private String description;
 

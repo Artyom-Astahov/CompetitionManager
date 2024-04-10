@@ -1,4 +1,4 @@
-package by.artem.dao.utils;
+package by.artem.utils;
 
 import java.io.IOException;
 import java.util.Properties;

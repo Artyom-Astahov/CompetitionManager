@@ -1,6 +1,6 @@
 package by.artem.servlet;
 
-import by.artem.dao.utils.JspHelper;
+import by.artem.utils.JspHelper;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
